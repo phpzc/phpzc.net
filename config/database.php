@@ -49,7 +49,7 @@ return [
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => '',
+            'prefix' => env('DB_PREFIX',''),
             'strict' => true,
             'engine' => null,
         ],
@@ -115,6 +115,12 @@ return [
             'database' => 0,
         ],
 
+        'session_redis_config' => [
+            'host' => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port' => env('REDIS_PORT', 6379),
+            'database' => 1,// use only for session
+        ],
     ],
 
 ];

@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'cn',
 
     /*
     |--------------------------------------------------------------------------
@@ -177,6 +177,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //注册微信服务
+        Overtrue\LaravelWechat\ServiceProvider::class,
     ],
 
     /*
@@ -226,6 +228,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        //添加微信alias
+        'EasyWeChat' => Overtrue\LaravelWechat\Facade::class,
+
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];
