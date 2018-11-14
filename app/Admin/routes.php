@@ -14,4 +14,15 @@ Route::group([
 
     $router->resource('link', LinkController::class);
 
+    $router->resource('key', KeyController::class);
+
+    $router->resource('document', DocumentController::class);
+
+    $router->resource('album', AlbumController::class);
+
+    $router->resource('profile', ProfileController::class);
+
+    $router->resource('photo', PhotoController::class);
+
+    $router->resource('category', CategoryController::class);
 });
