@@ -21,7 +21,7 @@
 
 LOCK TABLES `vip_admin_menu` WRITE;
 /*!40000 ALTER TABLE `vip_admin_menu` DISABLE KEYS */;
-INSERT INTO `vip_admin_menu` VALUES (1,0,1,'Index','fa-bar-chart','/',NULL,NULL,NULL),(2,0,9,'Admin','fa-tasks','',NULL,NULL,'2018-11-14 06:42:38'),(3,2,10,'Users','fa-users','auth/users',NULL,NULL,'2018-11-14 06:42:38'),(4,2,11,'Roles','fa-user','auth/roles',NULL,NULL,'2018-11-14 06:42:38'),(5,2,12,'Permission','fa-ban','auth/permissions',NULL,NULL,'2018-11-14 06:42:38'),(6,2,13,'Menu','fa-bars','auth/menu',NULL,NULL,'2018-11-14 06:42:38'),(7,2,14,'Operation log','fa-history','auth/logs',NULL,NULL,'2018-11-14 06:42:38'),(8,0,15,'Log viewer','fa-database','logs',NULL,'2018-11-14 05:36:51','2018-11-14 06:42:38'),(9,0,16,'Redis manager','fa-database','redis',NULL,'2018-11-14 05:39:19','2018-11-14 06:42:38'),(10,0,17,'Media manager','fa-file','media',NULL,'2018-11-14 05:48:20','2018-11-14 06:42:38'),(11,0,5,'Link','fa-bars','link',NULL,'2018-11-14 06:07:26','2018-11-14 06:41:03'),(12,0,7,'Key','fa-bars','key',NULL,'2018-11-14 06:29:12','2018-11-14 06:42:38'),(13,0,4,'Document','fa-bars','document',NULL,'2018-11-14 06:37:12','2018-11-14 06:41:03'),(14,0,2,'Album','fa-bars','album',NULL,'2018-11-14 06:38:36','2018-11-14 06:38:48'),(15,0,8,'Profile','fa-bars','profile',NULL,'2018-11-14 06:40:42','2018-11-14 06:42:38'),(16,0,3,'Photo','fa-bars','photo',NULL,'2018-11-14 06:40:53','2018-11-14 06:41:03'),(17,0,6,'Category','fa-bars','category',NULL,'2018-11-14 06:42:29','2018-11-14 06:42:38');
+INSERT INTO `vip_admin_menu` VALUES (1,0,1,'Index','fa-bar-chart','/',NULL,NULL,NULL),(2,0,10,'Admin','fa-tasks','',NULL,NULL,'2018-11-14 06:51:00'),(3,2,11,'Users','fa-users','auth/users',NULL,NULL,'2018-11-14 06:51:00'),(4,2,12,'Roles','fa-user','auth/roles',NULL,NULL,'2018-11-14 06:51:00'),(5,2,13,'Permission','fa-ban','auth/permissions',NULL,NULL,'2018-11-14 06:51:00'),(6,2,14,'Menu','fa-bars','auth/menu',NULL,NULL,'2018-11-14 06:51:00'),(7,2,15,'Operation log','fa-history','auth/logs',NULL,NULL,'2018-11-14 06:51:00'),(8,0,16,'Log viewer','fa-database','logs',NULL,'2018-11-14 05:36:51','2018-11-14 06:51:00'),(9,0,17,'Redis manager','fa-database','redis',NULL,'2018-11-14 05:39:19','2018-11-14 06:51:00'),(10,0,18,'Media manager','fa-file','media',NULL,'2018-11-14 05:48:20','2018-11-14 06:51:00'),(11,0,5,'友情链接','fa-bars','link',NULL,'2018-11-14 06:07:26','2018-11-14 06:50:13'),(12,0,7,'帐号','fa-bars','key',NULL,'2018-11-14 06:29:12','2018-11-14 06:49:53'),(13,0,4,'文档','fa-bars','document',NULL,'2018-11-14 06:37:12','2018-11-14 06:50:23'),(14,0,2,'相册','fa-bars','album',NULL,'2018-11-14 06:38:36','2018-11-14 06:50:37'),(15,0,8,'个人','fa-bars','profile',NULL,'2018-11-14 06:40:42','2018-11-14 06:49:41'),(16,0,3,'照片','fa-bars','photo',NULL,'2018-11-14 06:40:53','2018-11-14 06:50:49'),(17,0,6,'分类','fa-bars','category',NULL,'2018-11-14 06:42:29','2018-11-14 06:50:04'),(18,0,9,'轮播图','fa-bars','carousel',NULL,'2018-11-14 06:49:23','2018-11-14 06:51:00');
 /*!40000 ALTER TABLE `vip_admin_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -41,7 +41,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `vip_admin_role_menu` WRITE;
 /*!40000 ALTER TABLE `vip_admin_role_menu` DISABLE KEYS */;
-INSERT INTO `vip_admin_role_menu` VALUES (1,2,NULL,NULL),(1,11,NULL,NULL),(1,12,NULL,NULL),(1,13,NULL,NULL),(1,14,NULL,NULL),(1,15,NULL,NULL),(1,16,NULL,NULL),(1,17,NULL,NULL);
+INSERT INTO `vip_admin_role_menu` VALUES (1,2,NULL,NULL),(1,11,NULL,NULL),(1,12,NULL,NULL),(1,13,NULL,NULL),(1,14,NULL,NULL),(1,15,NULL,NULL),(1,16,NULL,NULL),(1,17,NULL,NULL),(1,18,NULL,NULL);
 /*!40000 ALTER TABLE `vip_admin_role_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,4 +103,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-14 14:42:43
+-- Dump completed on 2018-11-14 14:51:16

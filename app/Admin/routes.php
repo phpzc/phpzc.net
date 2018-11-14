@@ -25,4 +25,8 @@ Route::group([
     $router->resource('photo', PhotoController::class);
 
     $router->resource('category', CategoryController::class);
+
+    $router->resource('carousel', CarouselController::class);
+
+
 });
