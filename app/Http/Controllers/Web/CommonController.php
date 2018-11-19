@@ -299,7 +299,7 @@ class CommonController extends Controller
      */
     public function getCacheArray($path, $name)
     {
-        $file = './cache/';
+        $file = './storage/app/public';
         $target = $file . $path . '/' .sha1($name) . '.php';
         $fpath = $file . $path;
         if (!is_dir($fpath)) {
@@ -340,7 +340,7 @@ class CommonController extends Controller
      */
     public function saveCacheArray($path, $name, $data)
     {
-        $file = './cache/';
+        $file = './storage/app/public';
         $target = $file . $path . '/' . sha1($name) . '.php';
         $fpath = $file . $path;
         if (!is_dir($fpath)) {
