@@ -61,7 +61,7 @@ class CommonController extends Controller
     {
 
         $_WEBSITE["url"] = NET_NAME;
-        $_WEBSITE["url_short"] = $_SERVER['HTTP_HOST'];
+        $_WEBSITE["url_short"] = $_SERVER['HTTP_HOST'] ?? '';
         $_WEBSITE["name"] = "张成的官方网站";
         $_WEBSITE['CONTROLLER_NAME'] = getCurrentController();
         $_WEBSITE['ACTION_NAME'] = getCurrentMethod();

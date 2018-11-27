@@ -42,7 +42,7 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver' => 'jwt', //token 改为jwt使用jwt
             'provider' => 'users',
         ],
     ],
@@ -66,8 +66,8 @@ return [
 
     'providers' => [
         'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
+            'driver' => 'my-eloquent',//eloquent
+            'model' => App\Model\User::class,
         ],
 
         // 'users' => [

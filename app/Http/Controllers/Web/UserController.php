@@ -15,6 +15,7 @@ use App\Model\User;
 use Illuminate\Support\Facades\Cookie;
 
 
+
 class UserController extends CommonController
 {
     public $user_service;

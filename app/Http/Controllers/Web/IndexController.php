@@ -17,10 +17,12 @@ use App\Model\Index;
 
 use App\Service\CacheService;
 
+use Illuminate\Http\Request;
+
 class IndexController extends CommonController
 {
 
-    public final function index()
+    public final function index(Request $request)
     {
 
         $func = \Closure::bind(function(){

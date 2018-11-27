@@ -4,6 +4,7 @@ namespace App\Service;
 use App\Model\User;
 
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class UserService extends Service {
 
@@ -61,7 +62,7 @@ class UserService extends Service {
                 session(['error'=>__('msg.login_error')]);
                 return false;
             }
-
+            Auth::login($user);
 
             session(['name'=>$user->name]);
             session(['id'=>$user->id]);
@@ -83,4 +84,22 @@ class UserService extends Service {
         return md5($password);
     }
 
+
+    /**
+     * 检查 账号密码
+     * @param $username
+     * @param $password
+     *
+     * @return bool|\App\Model\User
+     */
+    public function check($username,$password)
+    {
+        $user = $this->getByName($username);
+        if( $user->password  == $this->change_password($password) )
+        {
+            return $user;
+        }else{
+            return false;
+        }
+    }
 }
