@@ -93,7 +93,7 @@
                                         --}}
                                         <div class="row">
                                             <div class="col-xs-12">
-                                                <button type="button" class="btn btn-success col-xs-12" id="TencentCaptcha" data-appid="{{ config('TECENT_007_LOGIN_ID','') }}}" data-cbfn="login_callback" >Login</button>
+                                                <button type="button" class="btn btn-success col-xs-12" id="TencentCaptcha" data-appid="{{ env('TECENT_007_LOGIN_ID','') }}}" data-cbfn="login_callback" >Login</button>
                                             </div>
                                         </div>
 
@@ -282,7 +282,7 @@
         // res（未通过验证）= {ret: 1, ticket: null}
         // res（验证成功） = {ret: 0, ticket: "String", randstr: "String"}
         if(res.ret === 0){
-            alert(res.ticket);   // 票据
+            //alert(res.ticket);   // 票据
 
             $('input[name=ticket]').val(res.ticket);
             $('input[name=randstr]').val(res.randstr);

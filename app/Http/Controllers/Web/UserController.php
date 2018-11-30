@@ -39,8 +39,8 @@ class UserController extends CommonController
 
 
 
-            $AppSecretKey = config('TECENT_007_LOGIN_KEY','');
-            $appid = config('TECENT_007_LOGIN_ID','');
+            $AppSecretKey = env('TECENT_007_LOGIN_KEY','');
+            $appid = env('TECENT_007_LOGIN_ID','');
             $Ticket = $request->input('ticket');
             $Randstr = $request->input('randstr');
             $UserIP = $request->ip();
