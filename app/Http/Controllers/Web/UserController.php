@@ -23,11 +23,11 @@ class UserController extends CommonController
 
     public final function login_page(Request $request)
     {
-
+        $defaultData = ['username'=>Cookie::get('username','') ,'password'=>Cookie::get('password','')];
         if( 'GET' == request()->method())
         {
 
-            return view('user.login',['username'=>Cookie::get('username','') ,'password'=>Cookie::get('password','')]);
+            return view('user.login',$defaultData);
         }else{
 
             $this->user_service = new UserService();
@@ -59,13 +59,13 @@ class UserController extends CommonController
             if(!$result){
 
                 session(['error'=> '请求验证码验证接口失败']);
-                return view('user.login');
+                return view('user.login',$defaultData);
 
             }else{
                 if($result['response'] != 1){
 
                     session(['error'=> $result['err_msg']]);
-                    return view('user.login');
+                    return view('user.login',$defaultData);
 
                     //echo $result['response'].":".$result['err_msg'];
                 }
@@ -84,7 +84,7 @@ class UserController extends CommonController
                     ->cookie('password', $password,7*24*3600 );
             }else{
 
-                return view('user.login');
+                return view('user.login',$defaultData);
             }
         }
     }

@@ -93,7 +93,7 @@
                                         --}}
                                         <div class="row">
                                             <div class="col-xs-12">
-                                                <button type="submit" class="btn btn-success col-xs-12" id="TencentCaptcha" data-appid="{{ config('TECENT_007_LOGIN_ID','') }}}" data-cbfn="login_callback" >Login</button>
+                                                <button type="button" class="btn btn-success col-xs-12" id="TencentCaptcha" data-appid="{{ config('TECENT_007_LOGIN_ID','') }}}" data-cbfn="login_callback" >Login</button>
                                             </div>
                                         </div>
 
