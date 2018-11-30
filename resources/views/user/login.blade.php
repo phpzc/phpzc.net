@@ -33,6 +33,9 @@
     <script src="{{ CUBE('js/html5shiv.js') }}"></script>
     <script src="{{ CUBE('js/respond.min.js') }}"></script>
     <![endif]-->
+
+    <!--腾讯007验证码-->
+    <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
 </head>
 <body id="login-page-full">
 <div id="login-full-wrapper">
@@ -49,11 +52,14 @@
                                     </div>
                                 </header>
                                 <div id="login-box-inner">
-                                    <form role="form" action="/user/login_page" method="post">
+                                    <form role="form" action="/user/login_page" method="post" id="login_form">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                             <input class="form-control" type="email" placeholder="Email address" name="username" value="{{ $username }}"/>
                                             {{ csrf_field() }}
+
+                                            <input type="hidden" name="ticket" value="">
+                                            <input type="hidden" name="randstr" value="">
                                         </div>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-key"></i></span>
@@ -87,7 +93,7 @@
                                         --}}
                                         <div class="row">
                                             <div class="col-xs-12">
-                                                <button type="submit" class="btn btn-success col-xs-12">Login</button>
+                                                <button type="submit" class="btn btn-success col-xs-12" id="TencentCaptcha" data-appid="{{ config('TECENT_007_LOGIN_ID','') }}}" data-cbfn="login_callback" >Login</button>
                                             </div>
                                         </div>
 
@@ -270,6 +276,19 @@
 <script src="{{ CUBE('js/scripts.js') }}"></script>
 
 <!-- this page specific inline scripts -->
+<script>
+    window.login_callback = function(res){
+        console.log(res)
+        // res（未通过验证）= {ret: 1, ticket: null}
+        // res（验证成功） = {ret: 0, ticket: "String", randstr: "String"}
+        if(res.ret === 0){
+            alert(res.ticket);   // 票据
 
+            $('input[name=ticket]').val(res.ticket);
+            $('input[name=randstr]').val(res.randstr);
+            $('#login_form').submit();
+        }
+    }
+</script>
 </body>
 </html>

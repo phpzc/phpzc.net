@@ -32,8 +32,46 @@ class UserController extends CommonController
 
             $this->user_service = new UserService();
 
+
+
             $username = $request->input('username');
             $password = $request->input('password');
+
+
+
+            $AppSecretKey = config('TECENT_007_LOGIN_KEY','');
+            $appid = config('TECENT_007_LOGIN_ID','');
+            $Ticket = $request->input('ticket');
+            $Randstr = $request->input('randstr');
+            $UserIP = $request->ip();
+
+            $url = "https://ssl.captcha.qq.com/ticket/verify";
+            $params = array(
+                "aid" => $appid,
+                "AppSecretKey" => $AppSecretKey,
+                "Ticket" => $Ticket,
+                "Randstr" => $Randstr,
+                "UserIP" => $UserIP
+            );
+            $paramstring = http_build_query($params);
+            $content = $this->txcurl($url,$paramstring);
+            $result = json_decode($content,true);
+            if(!$result){
+
+                session(['error'=> '请求验证码验证接口失败']);
+                return view('user.login');
+
+            }else{
+                if($result['response'] != 1){
+
+                    session(['error'=> $result['err_msg']]);
+                    return view('user.login');
+
+                    //echo $result['response'].":".$result['err_msg'];
+                }
+            }
+            //成功通过验证码的走原先流程
+
 
             $loginResult = $this->user_service->login($username,$password);
 
@@ -49,6 +87,48 @@ class UserController extends CommonController
                 return view('user.login');
             }
         }
+    }
+
+    /**
+     * 请求接口返回内容
+     * @param  string $url [请求的URL地址]
+     * @param  string $params [请求的参数]
+     * @param  int $ipost [是否采用POST形式]
+     * @return  string
+     */
+    function txcurl($url,$params=false,$ispost=0){
+        $httpInfo = array();
+        $ch = curl_init();
+
+        curl_setopt( $ch, CURLOPT_HTTP_VERSION , CURL_HTTP_VERSION_1_1 );
+        curl_setopt( $ch, CURLOPT_USERAGENT , 'JuheData' );
+        curl_setopt( $ch, CURLOPT_CONNECTTIMEOUT , 60 );
+        curl_setopt( $ch, CURLOPT_TIMEOUT , 60);
+        curl_setopt( $ch, CURLOPT_RETURNTRANSFER , true );
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        if( $ispost )
+        {
+            curl_setopt( $ch , CURLOPT_POST , true );
+            curl_setopt( $ch , CURLOPT_POSTFIELDS , $params );
+            curl_setopt( $ch , CURLOPT_URL , $url );
+        }
+        else
+        {
+            if($params){
+                curl_setopt( $ch , CURLOPT_URL , $url.'?'.$params );
+            }else{
+                curl_setopt( $ch , CURLOPT_URL , $url);
+            }
+        }
+        $response = curl_exec( $ch );
+        if ($response === FALSE) {
+            //echo "cURL Error: " . curl_error($ch);
+            return false;
+        }
+        $httpCode = curl_getinfo( $ch , CURLINFO_HTTP_CODE );
+        $httpInfo = array_merge( $httpInfo , curl_getinfo( $ch ) );
+        curl_close( $ch );
+        return $response;
     }
 
     public final function logout()
