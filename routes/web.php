@@ -72,3 +72,7 @@ Route::group(['namespace'=>'Web'],function(){
 
     setRouteMap('zhifubao');
 });
+
+Route::get('/vue',function(){
+    return view('welcome');
+});
