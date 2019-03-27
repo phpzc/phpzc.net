@@ -9,6 +9,7 @@ use App\Http\Requests\Api\AuthorizationRequest;
 use App\Service\UserService;
 
 use App\Http\Requests\Api\WeappAuthorizationRequest;
+use App\Model\WxUser;
 
 class AuthorizationsController extends Controller
 {
@@ -127,6 +128,37 @@ class AuthorizationsController extends Controller
 
     }
 
+    //小程序登录2  无需帐号密码 只使用微信身份
+    public function weappStore2(WeappAuthorizationRequest $request) {
+
+        $code = $request->code;
+
+        // 根据 code 获取微信 openid 和 session_key
+        $miniProgram = \EasyWeChat::miniProgram();
+        $data = $miniProgram->auth->session($code);
+
+        // 如果结果错误，说明 code 已过期或不正确，返回 401 错误
+        if (isset($data['errcode'])) {
+            return $this->response->errorUnauthorized('code 不正确');
+        }
+        // 找到 openid 对应的用户
+        $user = WxUser::where('openid', $data['openid'])->first();
+
+        if (!$user) {
+
+            //新建
+            $user = new WxUser();
+            $user->openid = $data['openid'];
+            $user->save();
+        }
+
+        // 为对应用户创建 JWT
+        $token = Auth::guard('api')->fromUser($user);
+
+        return $this->respondWithToken($token)->setStatusCode(201);
+
+    }
+
     protected function respondWithToken($token)
     {
         return $this->response->array([
@@ -135,4 +167,7 @@ class AuthorizationsController extends Controller
             'expires_in' => \Auth::guard('api')->factory()->getTTL() * 60
         ]);
     }
+
+
+
 }

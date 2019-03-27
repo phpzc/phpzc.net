@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Model\User;
 use App\Transformers\UserTransformer;
 
+use App\Model\Profile;
+use App\Transformers\ProfileTransformer;
 
 class UserController extends Controller
 {
@@ -15,4 +17,9 @@ class UserController extends Controller
         return $this->response->item($this->user(), new UserTransformer());
     }
 
+    public function about()
+    {
+        $profile = Profile::find(1);
+        return $this->response->item($profile, new ProfileTransformer() );
+    }
 }

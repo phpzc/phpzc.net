@@ -76,3 +76,4 @@ Route::group(['namespace'=>'Web'],function(){
 Route::get('/vue',function(){
     return view('welcome');
 });
+

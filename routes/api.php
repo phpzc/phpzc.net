@@ -51,10 +51,13 @@ $api->version('v1', [
             ->name('api.authorizations.destroy');
 
 
-        //小程序登录
-        $api->post('weapp/authorizations', 'AuthorizationsController@weappStore')
-            ->name('api.weapp.authorizations.store');
+        //小程序登录 需要帐号密码
+        //$api->post('weapp/authorizations', 'AuthorizationsController@weappStore')
+            //->name('api.weapp.authorizations.store');
 
+        //小程序登录2  微信端 不需要帐号密码
+        $api->post('weapp/authorizations2', 'AuthorizationsController@weappStore2')
+            ->name('api.weapp.authorizations.store2');
 
     });
 
@@ -67,6 +70,15 @@ $api->version('v1', [
     ],function($api){
 
         //游客可以访问的  非登录状态
+        // 小程序不设置权限验证 都可以访问
+        $api->get('about','UserController@about')
+            ->name('api.weapp.about');
+
+        //列表
+        $api->get('articles','ArticleController@index')
+            ->name('api.weapp.articles');
+        //详情
+
 
 
         //已登录用户可以访问的

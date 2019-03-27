@@ -43,7 +43,8 @@ return [
 
         'api' => [
             'driver' => 'jwt', //token 改为jwt使用jwt
-            'provider' => 'users',
+            //'provider' => 'users',
+            'provider' => 'wx_users',//记录作用
         ],
     ],
 
@@ -74,6 +75,12 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+
+        'wx_users'=>[
+            'driver' => 'database',
+            'table' => 'wx_users',
+        ],
     ],
 
     /*

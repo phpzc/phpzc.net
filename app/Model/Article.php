@@ -10,4 +10,13 @@ class Article extends Model
 
     public $table = 'article';
 
+    public function getCategoryName()
+    {
+        $path = $this->bpath;
+        $idArr = explode('-',$path);
+        $id = $idArr[1];
+        $category = Category::find($id);
+
+        return $category->name;
+    }
 }

@@ -29,5 +29,6 @@ class AuthServiceProvider extends ServiceProvider
         \Auth::provider('my-eloquent', function ($app, $config) {
             return new \App\Providers\MyAuthProvider($app['hash'], $config['model']);
         });
+
     }
 }
