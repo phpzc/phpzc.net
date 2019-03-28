@@ -11,8 +11,11 @@ namespace App\Transformers;
 
 use App\Model\Article;
 
+
 class ArticlePageTransformer extends Transformer
 {
+    protected $availableIncludes = ['user'];
+
     public function transform(Article $article)
     {
         return [
@@ -27,5 +30,10 @@ class ArticlePageTransformer extends Transformer
 
             'category_name' => $article->getCategoryName(),
         ];
+    }
+
+    public function includeUser(Article $article)
+    {
+        return $this->item($article->user, new UserTransformer());
     }
 }

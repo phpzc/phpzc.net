@@ -76,8 +76,10 @@ $api->version('v1', [
 
         //列表
         $api->get('articles','ArticleController@index')
-            ->name('api.weapp.articles');
+            ->name('api.articles.index');
         //详情
+        $api->get('articles/{article}','ArticleController@show')
+            ->name('api.articles.show');
 
 
 

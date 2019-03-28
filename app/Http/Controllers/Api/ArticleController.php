@@ -22,4 +22,11 @@ class ArticleController extends Controller
 
         return $this->response->paginator($articles, new ArticlePageTransformer());
     }
+
+    public function show($id)
+    {
+        $article = Article::find($id);
+
+        return $this->response->item($article, new ArticleTransformer());
+    }
 }

@@ -12,17 +12,27 @@ use App\Model\Article;
 
 class ArticleTransformer extends Transformer
 {
+    protected $availableIncludes = ['user'];
+
     public function transform(Article $article)
     {
         return [
             'id'=>$article->id,
             'title' => $article->title,
             'content' => $article->content,
-            'time' => date('Y-m-d',$article->time),
+            'time' => date('Y-m-d H:i:s',$article->time),
             'visit' => $article->visit,
             'isdel' => $article->isdel,
             'type' => $article->type,//0-baidu 1-markdown
             'markdown' => $article->markdown,
+
+
+            'category_name' => $article->getCategoryName(),
         ];
+    }
+
+    public function includeUser(Article $article)
+    {
+        return $this->item($article->user, new UserTransformer());
     }
 }
