@@ -18,7 +18,7 @@ class ArticleController extends Controller
 {
     public function index(Request $request,Article $article)
     {
-        $articles = $article->orderBy('id', 'desc')->paginate(5);
+        $articles = $article->orderBy('id', 'desc')->paginate(10);
 
         return $this->response->paginator($articles, new ArticlePageTransformer());
     }
