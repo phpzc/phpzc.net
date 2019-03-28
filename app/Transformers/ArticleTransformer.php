@@ -19,7 +19,7 @@ class ArticleTransformer extends Transformer
         return [
             'id'=>$article->id,
             'title' => $article->title,
-            'content' => $article->content,
+            'content' =>  htmlspecialchars_decode($article->content),
             'time' => date('Y-m-d H:i:s',$article->time),
             'visit' => $article->visit,
             'isdel' => $article->isdel,
