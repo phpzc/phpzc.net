@@ -39,6 +39,10 @@
                         <img src="{{ tabler_assets('images/logo.png') }}" class="header-brand-img" alt="tabler logo">
                     </a>
                     <div class="d-flex order-lg-2 ml-auto">
+                        <div class="nav-item d-none d-md-flex">
+
+                            <a href="https://github.com/phpzc/phpzc.net" class="btn btn-outline-primary btn-sm" >Source code</a>
+                        </div>
 
                         @if ( session('id') ==  null )
                             <div class="nav-item d-none d-md-flex">
@@ -189,7 +193,10 @@
                     <div class="row align-items-center">
 
                         <div class="col-auto">
-                            <a href="https://github.com/phpzc/phpzc.net" class="btn btn-outline-primary btn-sm">Source code</a>
+                            <div class="row ">
+                                <img src="/wx_mini.jpg" alt="微信小程序-PHP张成的博客" class="img-circle  pull-right" style="max-height: 150px;">
+                            </div>
+
                         </div>
                     </div>
                 </div>
