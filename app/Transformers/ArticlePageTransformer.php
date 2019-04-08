@@ -20,7 +20,7 @@ class ArticlePageTransformer extends Transformer
     {
         return [
             'id'=>$article->id,
-            'title' => $article->title,
+            'title' => htmlspecialchars_decode($article->title),
             //'time' => $article->time,
             'time' => date('Y-m-d H:i',$article->time),
 
