@@ -119,14 +119,35 @@
                     @endif
 
                     <!--PC版-->
-                    <div id="SOHUCS" sid="{{ $article['id'] }}"></div>
-                    <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
-                    <script type="text/javascript">
-                        window.changyan.api.config({
-                            appid: 'cyt9FQgps',
-                            conf: 'prod_e3220b887fd745b0f30b968992ed5a02'
-                        });
-                    </script>
+
+{{--                    <div id="SOHUCS" sid="{{ $article['id'] }}"></div>--}}
+{{--                    <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>--}}
+{{--                    <script type="text/javascript">--}}
+{{--                        window.changyan.api.config({--}}
+{{--                            appid: 'cyt9FQgps',--}}
+{{--                            conf: 'prod_e3220b887fd745b0f30b968992ed5a02'--}}
+{{--                        });--}}
+{{--                    </script>--}}
+
+                    <!-- 来必力City版安装代码 -->
+                    <div id="lv-container" data-id="city" data-uid="MTAyMC80NDg1MC8yMTM3MQ==">
+                        <script type="text/javascript">
+                            (function(d, s) {
+                                var j, e = d.getElementsByTagName(s)[0];
+
+                                if (typeof LivereTower === 'function') { return; }
+
+                                j = d.createElement(s);
+                                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                                j.async = true;
+
+                                e.parentNode.insertBefore(j, e);
+                            })(document, 'script');
+                        </script>
+                        <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                    </div>
+                    <!-- City版安装代码已完成 -->
+
                 </div>
             </div>
         </div>
