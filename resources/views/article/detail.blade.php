@@ -16,7 +16,7 @@
         <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
         <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
         <script type="text/javascript" charset="utf-8" src="{{ UEDITOR('lang/zh-cn/zh-cn.js') }}"></script>
-        
+
 
         <!--公式插件 -->
         <script type="text/javascript" charset="utf-8" src="/Public/baidu/UEditor/kityformula-plugin/addKityFormulaDialog.js"></script>
@@ -120,14 +120,34 @@
 
                     <!--PC版-->
 
-                    <div id="SOHUCS" sid="{{ $article['id'] }}"></div>
-                    <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
-                    <script type="text/javascript">
-                        window.changyan.api.config({
-                            appid: 'cyt9FQgps',
-                            conf: 'prod_e3220b887fd745b0f30b968992ed5a02'
-                        });
+{{--                    <div id="SOHUCS" sid="{{ $article['id'] }}"></div>--}}
+{{--                    <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>--}}
+{{--                    <script type="text/javascript">--}}
+{{--                        window.changyan.api.config({--}}
+{{--                            appid: 'cyt9FQgps',--}}
+{{--                            conf: 'prod_e3220b887fd745b0f30b968992ed5a02'--}}
+{{--                        });--}}
+{{--                    </script>--}}
+
+
+                    <div id="disqus_thread"></div>
+                    <script>
+
+
+                        var disqus_config = function () {
+                        this.page.url = 'https://www.phpzc.net/article/detail?id={{ request()->input('id') }}';
+                        this.page.identifier = '{{ request()->input('id') }}';
+                        };
+
+                        (function() { // DON'T EDIT BELOW THIS LINE
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://zhang-chengs-personal-blog.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
                     </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 
 {{--                    <!-- 来必力City版安装代码 -->--}}
 {{--                    <div id="lv-container" data-id="city" data-uid="MTAyMC80NDg1MC8yMTM3MQ==">--}}
