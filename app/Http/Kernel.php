@@ -20,6 +20,9 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+
+        //添加session自动启动 这里不添加 会报session store错误
+        \Illuminate\Session\Middleware\StartSession::class,
     ];
 
     /**
