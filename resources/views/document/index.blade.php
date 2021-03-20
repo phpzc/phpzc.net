@@ -33,6 +33,6 @@
     </div>
     <link rel="stylesheet" href="{{ tabler_assets('css/bootstrap_pagination.css') }}">
     <div class="row">
-        <div class="common_page">{{ $page }}</div>
+        <div class="common_page">{{ $page->links() }}</div>
     </div>
 @endsection
