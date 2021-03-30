@@ -66,15 +66,17 @@ return [
     */
 
     'providers' => [
+
         'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
+            'driver' => 'my-eloquent',//eloquent
+            'model' => App\Model\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+
+        'wx_users'=>[
+            'driver' => 'database',
+            'table' => 'wx_users',
+        ],
     ],
 
     /*
