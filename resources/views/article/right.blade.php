@@ -46,4 +46,12 @@
     @endforeach
 
 </div>
+
+<div class="example mb-4">
+    <h3>访客地图</h3>
+    <div>
+        <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=tJ2HZndW5sUo7C5poXgljfGpX1UDijKTFyF7i8-dWQ4&cl=ffffff&w=a"></script>
+    </div>
+</div>
+
 </div>
