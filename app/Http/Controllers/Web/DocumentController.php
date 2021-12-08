@@ -34,7 +34,7 @@ class DocumentController extends CommonController
             ->orderBy('id','desc')
             ->paginate(9);
 
-        return view('document.index',['documents'=> ($result->toArray())['data'] ,'page'=>$result->links() ]);
+        return view('document.index',['documents'=> ($result->toArray())['data'] ,'page'=>$result ]);
 
     }
 

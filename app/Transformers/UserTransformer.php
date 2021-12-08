@@ -14,7 +14,7 @@ class UserTransformer extends Transformer {
             'avatar' => $user->avatar,
             'introduction' => $user->introduction,
             'baidu'=>$user->baidu,
-            'qq'=>$user->sina,
+            'qq'=>$user->qq,
             'github'=>$user->github,
             'battle_us'=>$user->battle_us,
         ];
