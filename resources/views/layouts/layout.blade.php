@@ -239,7 +239,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
-                    Copyright © 2018 <a href="https://www.phpzc.net" target="_blank">phpzc.net</a> All rights reserved.
+                    Copyright © 2018 <a href="https://www.phpzc.net" target="_blank">phpzc.net</a> All rights reserved. 备案信息 <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备14007760号-3</a>
                 </div>
             </div>
         </div>
