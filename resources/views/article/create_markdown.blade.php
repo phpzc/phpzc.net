@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="card-footer text-right">
-                        <button type="submit" class="btn btn-primary" onclick="document.getElementById('current_form').submit()" >Make request</button>
+                        <button type="submit" class="btn btn-primary" onclick="document.getElementById('current_form').submit()" >Submit</button>
                     </div>
                 </form>
             </div>

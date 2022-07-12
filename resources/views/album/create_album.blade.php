@@ -1,62 +1,58 @@
-@extends('layouts.main')
-@section('head')
-    <link rel="stylesheet" href="{{ CUBE('/css/libs/select2.css') }}" type="text/css" />
-@endsection
+@extends('layouts.layout')
 
 @section('content')
     <div class="row">
-        <div class="col-lg-12">
-            <div class="main-box">
-                <header class="main-box-header clearfix">
-                    <h2>Album create form</h2>
-                </header>
+        <form class="card" action="/album/create_album" method="post" id="current_form">
+            {{ csrf_field() }}
+            <div class="card-body">
+                <h3 class="card-title">Album create </h3>
 
-                <div class="main-box-body clearfix">
-                    <form class="form-horizontal" role="form" action="/album/create_album" method="post" id="current_form">
-                        {{ csrf_field() }}
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label for="form_title" class="col-lg-2 control-label">相册名称：</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" id="form_title" placeholder="Title" name="title" />
-                            </div>
-
+                            <label class="form-label">相册名称：</label>
+                            <input type="text" class="form-control" id="form_title" placeholder="Title" name="title" />
                         </div>
 
+                    </div>
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label class="col-lg-2 control-label">相册描述：</label>
-                            <div class="col-lg-10">
-                                <textarea class="form-control" name="content">
-                                </textarea>
-                            </div>
+                            <label class="form-label">相册描述：</label>
+                            <textarea class="form-control" name="content"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                    <div class="form-group">
+                        <label  class="form-label">可见性：</label>
+                        <div class="custom-controls-stacked">
+
+
+                            <label class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="optionsRadios" id="optionsRadios1" value="0" checked>
+                                <div class="custom-control-label">不可见</div>
+                            </label>
+
+                            <label class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="optionsRadios" id="optionsRadios2" value="1" >
+                                <div class="custom-control-label">可见</div>
+                            </label>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="col-md-12">
+
+                        <div class="form-group">
+
+                            <button  type="button" onclick="document.getElementById('current_form').submit()" class="btn btn-success">Submit</button>
 
                         </div>
-
-                        <div class="form-group">
-                            <label  class="col-lg-2 control-label">可见性：</label>
-                            <div class="col-lg-10">
-                                <div class="radio">
-                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="0" checked>
-                                    <label for="optionsRadios1">
-                                        不可见
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="1">
-                                    <label for="optionsRadios2">
-                                        可见
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-lg-offset-2 col-lg-10">
-                                <button  type="button" onclick="document.getElementById('current_form').submit()" class="btn btn-success">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    </div>
             </div>
-        </div>
+
+
+        </form>
+
     </div>
 @endsection
