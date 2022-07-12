@@ -1,15 +1,19 @@
-@extends('layouts.main')
-@section('content')
-    <div class="row" id="form_show_result"  >
-        <div class="alert alert-success">
-            <i class="fa fa-check-circle fa-fw fa-lg"></i>
-            <strong>{{ urldecode($title) }} Success!</strong>  <a href="{{ urldecode($url) }}" id="target_url" class="alert-link">立即跳转至目标页</a>.
-        </div>
+@extends('layouts.layout')
 
-    </div>
+@section('content_title')
 @endsection
 
-@section('after')
+@section('content')
+
+        <div class="alert alert-icon alert-success" role="alert">
+            <i class="fe fe-check mr-2" aria-hidden="true"></i>
+            <strong>{{ urldecode($title) }} Success!</strong>
+            <a href="{{ urldecode($url) }}" id="target_url" class="alert-link">立即跳转至目标页</a>.
+        </div>
+
+@endsection
+
+@section('footer')
     <script>
         (function(){
             var wait = {{ $sec }},href = $("#target_url").attr("href");

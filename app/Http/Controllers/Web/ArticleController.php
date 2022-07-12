@@ -195,7 +195,7 @@ class ArticleController extends CommonController
         if ($res) {
             $key = new KeywordController();
             $key->automake ( $res, $_REQUEST ["form_tag"], 'article' );
-            $this->formSuccess ( "创建文章", "/article/create" );
+            $this->formSuccess ( "创建文章", "/article/create_markdown" );
         } else {
             $this->formErrorReferer ( "创建文章" );
         }
